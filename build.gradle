@@ -1,0 +1,24 @@
+// TODO eclipse TypeScript の設定りを追加する。
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.2.1'
+}
+
+eclipseWtpComponent.dependsOn cleanEclipseWtpComponent
+
+sourceCompatibility = targetCompatibility = 1.8
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.apache.thrift:libthrift:0.9.2'
+  runtime 'org.slf4j:slf4j-simple:1.7.+'
+  providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
+}
