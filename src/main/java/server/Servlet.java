@@ -15,5 +15,4 @@ public class Servlet extends TServlet {
     public Servlet() {
         super(new Calculator.Processor<>(new CalculatorHandler()), new TJSONProtocol.Factory());
     }
-
 }
